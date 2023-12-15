@@ -13,13 +13,13 @@ Para instalar o **Portfólio**, siga estas etapas:
 Linux and macOS:
 
 ```bash
-sudo git clone link
+sudo git clone https://github.com/Niinh/portfolio-pessoal-cv
 ```
 
 Windows:
 
 ```bash
-git clone link
+git clone https://github.com/Niinh/portfolio-pessoal-cv
 ```
 
 ## Contato
