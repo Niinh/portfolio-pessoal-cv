@@ -728,6 +728,29 @@
 
     <!-- custom js link -->
     <script src="./assets/js/script.js"></script>
+    <!-- script para remover acesso ao viewsource -->
+    <script>
+      document.onkeydown = function(e) {
+
+        // console.log(e.keyCode); // u = 85, i = 73, j = 74
+        if(e.ctrlKey && e.keyCode == 85){
+
+          alert("Ctrl + U foi desativado ");
+          return false;
+        }
+
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+
+          alert("Ctrl + Shift + I foi desativado ");
+          return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+
+          alert("Ctrl + Shift + J foi desativado ")
+          return false;
+        }
+      }
+    </script>
 
     <!-- ionicon link -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
