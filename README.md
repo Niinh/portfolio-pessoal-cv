@@ -56,6 +56,17 @@ Observacoes importantes:
 - `NETLIFY_BUILD_HOOK_URL` e opcional, mas recomendado para Netlify. Ele faz o webhook disparar um novo deploy quando houver push.
 - Nao faca commit do arquivo `.env`. Em producao, use as variaveis do proprio Netlify.
 
+Antes do webhook, confirme que o deploy automatico da Netlify esta ativo:
+
+1. Abra `https://app.netlify.com/projects/brunoneves`.
+2. Va em `Project configuration > Build & deploy > Continuous deployment`.
+3. Confirme que o repositorio e `Niinh/portfolio-pessoal-cv`.
+4. Confirme que a branch de producao e `main`.
+5. O `netlify.toml` deste projeto ja define `npm run build` e publish `.next`.
+6. Rode `Trigger deploy > Deploy site` depois de salvar.
+
+Diagnostico rapido: se `https://brunoneves.netlify.app/api/revalidate-github` retorna 404, a versao nova ainda nao foi publicada. Depois do deploy correto, ela deve retornar JSON, mesmo que seja um 401 quando o secret ainda nao estiver configurado.
+
 ## Webhook GitHub + Netlify
 
 Depois de fazer deploy desta versao, teste primeiro:
