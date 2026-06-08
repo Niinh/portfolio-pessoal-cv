@@ -118,7 +118,10 @@ async function upsertWebhook(repository, webhookUrl, secret) {
 function getWebhookUrl() {
   if (process.env.GITHUB_WEBHOOK_URL) return process.env.GITHUB_WEBHOOK_URL;
 
-  const siteUrl = requireEnv("NEXT_PUBLIC_SITE_URL").replace(/\/$/, "");
+  const siteUrl = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || requireEnv("SITE_URL")).replace(
+    /\/$/,
+    "",
+  );
   return `${siteUrl}/.netlify/functions/revalidate-github`;
 }
 

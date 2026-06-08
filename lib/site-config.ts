@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Portfólio profissional de Bruno Neves, especialista em desenvolvimento web, interfaces digitais, automações, SaaS, landing pages e soluções visuais para negócios.",
   githubUsername: process.env.GITHUB_USERNAME ?? "Niinh",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  siteUrl: process.env.SITE_URL ?? process.env.URL ?? "https://brunoneves.netlify.app",
   contact: {
     email: "niin.neves5825@gmail.com",
     formEmail: "nevesniin@gmail.com",

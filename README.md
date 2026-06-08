@@ -37,7 +37,7 @@ O site usa ISR com revalidacao de 30 minutos. Isso significa que novos repositor
 No Netlify, configure estas variaveis em `Site configuration > Environment variables`:
 
 ```txt
-NEXT_PUBLIC_SITE_URL=https://brunoneves.netlify.app
+SITE_URL=https://brunoneves.netlify.app
 GITHUB_USERNAME=Niinh
 GITHUB_SYNC_MODE=all
 GITHUB_PROJECT_TOPIC=portfolio
@@ -51,7 +51,7 @@ Observacoes importantes:
 
 - `GITHUB_TOKEN` e recomendado em producao para aumentar o limite da API, mas repositorios publicos funcionam sem token.
 - `GITHUB_WEBHOOK_TOKEN` e usado apenas pelo script local de configuracao de webhooks. Pode ser o mesmo token se ele tiver permissao para webhooks.
-- `GITHUB_WEBHOOK_URL` e opcional. Se ficar vazio, o script usa `NEXT_PUBLIC_SITE_URL + /.netlify/functions/revalidate-github`.
+- `GITHUB_WEBHOOK_URL` e opcional. Se ficar vazio, o script usa `SITE_URL + /.netlify/functions/revalidate-github`.
 - `GITHUB_REVALIDATE_SECRET` deve ser uma frase longa e aleatoria. Use o mesmo valor no GitHub webhook.
 - `NETLIFY_BUILD_HOOK_URL` e opcional, mas recomendado para Netlify. Ele faz o webhook disparar um novo deploy quando houver push.
 - Nao faca commit do arquivo `.env`. Em producao, use as variaveis do proprio Netlify.
