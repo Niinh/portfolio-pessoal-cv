@@ -8,6 +8,9 @@
 [functions]
   node_bundler = "esbuild"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [[headers]]
   for = "/api/revalidate-github"
   [headers.values]
