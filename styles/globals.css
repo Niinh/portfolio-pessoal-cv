@@ -276,8 +276,11 @@ button {
 .button-link,
 .submit-button {
   align-items: center;
+  appearance: none;
   border-radius: 999px;
+  cursor: pointer;
   display: inline-flex;
+  font: inherit;
   font-size: 0.94rem;
   font-weight: 750;
   gap: 10px;
@@ -1302,6 +1305,8 @@ body > * {
 
 .scroll-cue {
   align-items: center;
+  appearance: none;
+  background: transparent;
   border: 1px solid var(--border);
   border-radius: 999px;
   bottom: 34px;

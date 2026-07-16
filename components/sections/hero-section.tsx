@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeadline } from "@/components/motion/split-headline";
 import { ButtonLink } from "@/components/ui/button-link";
+import { ScrollButton } from "@/components/ui/scroll-button";
 import { aboutParagraphs } from "@/lib/profile-data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -29,10 +30,10 @@ export function HeroSection() {
           parecer confiáveis, modernos e prontos para crescer desde a primeira dobra.
         </p>
         <div className="hero-actions">
-          <ButtonLink href="#contato">
+          <ScrollButton targetId="contato">
             <Mail aria-hidden size={18} />
             Iniciar conversa
-          </ButtonLink>
+          </ScrollButton>
           <ButtonLink href="/projetos" variant="secondary">
             Ver projetos
             <ArrowRight aria-hidden size={18} />
@@ -74,10 +75,15 @@ export function HeroSection() {
         </div>
       </Reveal>
 
-      <a className="scroll-cue" href="#resumo" aria-label="Rolar para resumo">
+      <ScrollButton
+        className="scroll-cue"
+        targetId="resumo"
+        variant="unstyled"
+        aria-label="Rolar para resumo"
+      >
         <ArrowDown aria-hidden size={18} />
         scroll
-      </a>
+      </ScrollButton>
     </section>
   );
 }
