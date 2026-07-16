@@ -8,9 +8,9 @@ import {
 } from "lucide-react";
 
 export const aboutParagraphs = [
-  "Sou Bruno de Souza Neves, desenvolvedor web e designer digital focado em transformar ideias em interfaces com presença, clareza e intenção comercial.",
-  "Construo websites, landing pages, sistemas front-end e identidades visuais para marcas e negócios que precisam se apresentar melhor, vender com mais confiança e operar com mais organização.",
-  "Minha trajetória combina atendimento, vendas, design, desenvolvimento e estudo contínuo em Engenharia da Computação. Isso me ajuda a pensar tanto na experiência do usuário quanto no resultado do projeto.",
+  "Sou Bruno de Souza Neves. Minha trajetória reúne experiências em atendimento ao cliente, vendas, design, desenvolvimento web e início de formação em Engenharia da Computação, proporcionando uma visão ampla das necessidades dos usuários e dos objetivos estratégicos das empresas.",
+  "Atuo no desenvolvimento de websites, landing pages, sistemas front-end, backend simples e identidades visuais, criando soluções que unem funcionalidade, organização e resultados. Tenho facilidade para aprender novas tecnologias, adaptar-me rapidamente a diferentes desafios e contribuir de forma proativa para o crescimento das equipes e dos projetos.",
+  "Também possuo experiência na comercialização de produtos de diferentes segmentos, desenvolvendo habilidades de negociação, relacionamento e fidelização de clientes, sempre com foco em um atendimento de excelência e em soluções personalizadas. Busco uma oportunidade para aplicar minhas competências técnicas e interpessoais, crescer junto à empresa e agregar valor por meio de dedicação, aprendizado contínuo e comprometimento com resultados.",
 ];
 
 export const education = [
