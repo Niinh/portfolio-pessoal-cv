@@ -5,6 +5,9 @@ import { useCallback, useState } from "react";
 
 const PDF_SOURCE_PATH = "/pdf-export";
 const PDF_FILENAME = "bruno-neves-curriculo-portfolio.pdf";
+const PDF_CAPTURE_SCALE = 4;
+const A4_WIDTH_MM = 210;
+const A4_HEIGHT_MM = 297;
 
 type DownloadState = "idle" | "loading" | "success" | "error";
 
@@ -102,6 +105,7 @@ export function PdfDownloadButton() {
         compress: true,
         format: "a4",
         orientation: "portrait",
+        precision: 16,
         unit: "mm",
       });
 
@@ -109,19 +113,21 @@ export function PdfDownloadButton() {
         const canvas = await html2canvas(page, {
           backgroundColor: "#0c0907",
           logging: false,
-          scale: Math.min(window.devicePixelRatio || 1, 2),
+          scale: PDF_CAPTURE_SCALE,
           useCORS: true,
           windowHeight: page.scrollHeight,
           windowWidth: page.scrollWidth,
         });
 
-        const image = canvas.toDataURL("image/jpeg", 0.96);
+        const image = canvas.toDataURL("image/png");
 
         if (index > 0) {
           pdf.addPage();
         }
 
-        pdf.addImage(image, "JPEG", 0, 0, 210, 297, undefined, "FAST");
+        pdf.addImage(image, "PNG", 0, 0, A4_WIDTH_MM, A4_HEIGHT_MM);
+        canvas.width = 0;
+        canvas.height = 0;
       }
 
       pdf.save(PDF_FILENAME);
