@@ -47,6 +47,21 @@ export function ContactSection() {
           </div>
         </dl>
 
+        <nav className="contact-quick-actions" aria-label="Atalhos de contato">
+          <Link href={whatsappUrl} target="_blank" aria-label="Chamar no WhatsApp">
+            <MessageCircle aria-hidden size={21} />
+          </Link>
+          <Link
+            href={`tel:${siteConfig.contact.phone.replace(/\D/g, "")}`}
+            aria-label="Ligar para Bruno"
+          >
+            <Phone aria-hidden size={20} />
+          </Link>
+          <Link href={`mailto:${siteConfig.contact.email}`} aria-label="Enviar email">
+            <Mail aria-hidden size={20} />
+          </Link>
+        </nav>
+
         <p className="contact-availability">Resposta em até 24h · Projetos selecionados</p>
       </Reveal>
 
@@ -111,21 +126,6 @@ export function ContactSection() {
           </button>
         </form>
       </Reveal>
-
-      <nav className="contact-quick-actions" aria-label="Atalhos de contato">
-        <Link href={whatsappUrl} target="_blank" aria-label="Chamar no WhatsApp">
-          <MessageCircle aria-hidden size={21} />
-        </Link>
-        <Link
-          href={`tel:${siteConfig.contact.phone.replace(/\D/g, "")}`}
-          aria-label="Ligar para Bruno"
-        >
-          <Phone aria-hidden size={20} />
-        </Link>
-        <Link href={`mailto:${siteConfig.contact.email}`} aria-label="Enviar email">
-          <Mail aria-hidden size={20} />
-        </Link>
-      </nav>
     </section>
   );
 }

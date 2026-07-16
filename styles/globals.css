@@ -2084,12 +2084,10 @@ body > * {
 }
 
 .contact-quick-actions {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 26px;
 }
 
 .contact-quick-actions a {
@@ -2106,7 +2104,553 @@ body > * {
 
 .contact-quick-actions a:hover {
   border-color: var(--accent);
-  transform: translateX(-3px);
+  transform: translateY(-3px);
+}
+
+.pdf-floating-button {
+  align-items: center;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paper) 84%, transparent);
+  border-radius: 999px;
+  bottom: 22px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.86rem;
+  font-weight: 850;
+  gap: 10px;
+  left: 22px;
+  min-height: 48px;
+  padding: 0 16px;
+  position: fixed;
+  transition: border-color 180ms ease, opacity 180ms ease, transform 180ms ease;
+  z-index: 60;
+}
+
+.pdf-floating-button:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.pdf-floating-button:disabled {
+  cursor: progress;
+  opacity: 0.76;
+}
+
+.pdf-floating-button__spinner {
+  animation: pdf-spin 0.82s linear infinite;
+}
+
+@keyframes pdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body:has(.pdf-source-page) .site-header,
+body:has(.pdf-source-page) .site-footer,
+body:has(.pdf-source-page) .pdf-floating-button {
+  display: none;
+}
+
+.pdf-source-page {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 179, 107, 0.16), transparent 300px),
+    radial-gradient(circle at 88% 4%, rgba(154, 182, 255, 0.14), transparent 340px),
+    linear-gradient(180deg, #0c0907, #17120e);
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.pdf-document {
+  display: grid;
+  gap: 24px;
+  margin: 0 auto;
+  width: 794px;
+}
+
+.pdf-page {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 34%),
+    linear-gradient(180deg, #0c0907, #17120e 58%, #0c0907);
+  border: 1px solid rgba(248, 241, 232, 0.18);
+  color: #f8f1e8;
+  display: grid;
+  height: 1123px;
+  overflow: hidden;
+  padding: 46px;
+  position: relative;
+  width: 794px;
+}
+
+.pdf-page::before {
+  background-image:
+    linear-gradient(rgba(248, 241, 232, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 241, 232, 0.04) 1px, transparent 1px);
+  background-size: 54px 54px;
+  content: "";
+  inset: 0;
+  opacity: 0.48;
+  pointer-events: none;
+  position: absolute;
+}
+
+.pdf-page::after {
+  background-image:
+    repeating-radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 9px);
+  content: "";
+  inset: 0;
+  opacity: 0.16;
+  pointer-events: none;
+  position: absolute;
+}
+
+.pdf-page > *:not(.pdf-page__chrome) {
+  position: relative;
+  z-index: 1;
+}
+
+.pdf-page__chrome {
+  border: 1px solid rgba(248, 241, 232, 0.18);
+  inset: 18px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.pdf-cover-header,
+.pdf-contact-strip,
+.pdf-page-heading--split,
+.pdf-final-strip {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pdf-cover-header {
+  align-self: start;
+}
+
+.pdf-cover-header img {
+  background: #ede7de;
+  border-radius: 999px;
+  height: 52px;
+  object-fit: cover;
+  width: 52px;
+}
+
+.pdf-cover-header div {
+  text-align: right;
+}
+
+.pdf-cover-header span,
+.pdf-kicker,
+.pdf-page-heading span,
+.pdf-contact-strip dt,
+.pdf-project-card__top,
+.pdf-timeline-list strong,
+.pdf-timeline-list span,
+.pdf-service-card span {
+  color: #9dffcf;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.pdf-cover-header strong {
+  display: block;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+.pdf-cover-grid {
+  align-items: end;
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr 220px;
+}
+
+.pdf-cover-copy h1,
+.pdf-page-heading h2 {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 4.9rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.88;
+  margin: 12px 0 0;
+}
+
+.pdf-cover-copy p:not(.pdf-kicker),
+.pdf-about-panel p,
+.pdf-page-heading p,
+.pdf-project-card p,
+.pdf-timeline-list p,
+.pdf-service-card p,
+.pdf-final-strip p,
+.pdf-empty-projects p {
+  color: rgba(248, 241, 232, 0.72);
+  line-height: 1.5;
+}
+
+.pdf-cover-copy p:not(.pdf-kicker) {
+  font-size: 1rem;
+  margin: 20px 0 0;
+  max-width: 460px;
+}
+
+.pdf-profile-card {
+  background: #ede7de;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+  color: #191613;
+  padding: 12px;
+  transform: rotate(1.4deg);
+}
+
+.pdf-profile-card__image {
+  aspect-ratio: 1;
+  background: #d8cec0;
+  display: grid;
+  overflow: hidden;
+  place-items: end center;
+}
+
+.pdf-profile-card__image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+  width: 100%;
+}
+
+.pdf-profile-card strong,
+.pdf-profile-card span {
+  display: block;
+}
+
+.pdf-profile-card strong {
+  margin-top: 14px;
+}
+
+.pdf-profile-card span {
+  color: rgba(25, 22, 19, 0.66);
+  font-size: 0.78rem;
+  margin-top: 4px;
+}
+
+.pdf-about-panel {
+  align-self: end;
+  background: rgba(33, 25, 19, 0.72);
+  border: 1px solid rgba(248, 241, 232, 0.18);
+  display: grid;
+  gap: 9px;
+  padding: 22px;
+}
+
+.pdf-about-panel span {
+  color: #ffb36b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pdf-about-panel p {
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.pdf-contact-strip {
+  align-self: end;
+  border-top: 1px solid rgba(248, 241, 232, 0.18);
+  gap: 14px;
+  padding-top: 18px;
+}
+
+.pdf-contact-strip div {
+  min-width: 0;
+}
+
+.pdf-contact-strip dd {
+  align-items: center;
+  display: flex;
+  font-size: 0.78rem;
+  font-weight: 750;
+  gap: 7px;
+  margin: 6px 0 0;
+}
+
+.pdf-page--resume,
+.pdf-page--projects,
+.pdf-page--services {
+  align-content: start;
+  gap: 24px;
+}
+
+.pdf-page-heading h2 {
+  font-size: 3.2rem;
+  max-width: 650px;
+}
+
+.pdf-page-heading--split p {
+  margin: 0;
+  max-width: 210px;
+}
+
+.pdf-resume-layout {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.pdf-timeline-card,
+.pdf-skills-card,
+.pdf-project-card,
+.pdf-service-card,
+.pdf-empty-projects,
+.pdf-final-strip {
+  background: rgba(33, 25, 19, 0.72);
+  border: 1px solid rgba(248, 241, 232, 0.18);
+}
+
+.pdf-timeline-card,
+.pdf-skills-card,
+.pdf-empty-projects {
+  padding: 18px;
+}
+
+.pdf-card-title {
+  align-items: center;
+  color: #ffb36b;
+  display: flex;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+
+.pdf-card-title h3,
+.pdf-project-card h3,
+.pdf-service-card h3,
+.pdf-empty-projects h3 {
+  margin: 0;
+}
+
+.pdf-timeline-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pdf-timeline-list li {
+  border-top: 1px solid rgba(248, 241, 232, 0.12);
+  display: grid;
+  gap: 4px 10px;
+  grid-template-columns: 28px 78px 1fr;
+  padding: 10px 0;
+}
+
+.pdf-timeline-list h4,
+.pdf-timeline-list p {
+  grid-column: 3;
+  margin: 0;
+}
+
+.pdf-timeline-list h4 {
+  font-size: 0.8rem;
+}
+
+.pdf-timeline-list p {
+  font-size: 0.64rem;
+}
+
+.pdf-side-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.pdf-timeline-list--compact li {
+  grid-template-columns: 24px 70px 1fr;
+  padding: 8px 0;
+}
+
+.pdf-timeline-list--compact h4 {
+  font-size: 0.72rem;
+}
+
+.pdf-timeline-list--compact p {
+  font-size: 0.58rem;
+}
+
+.pdf-skills-card ul,
+.pdf-project-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pdf-skills-card li,
+.pdf-project-card li {
+  border: 1px solid rgba(248, 241, 232, 0.16);
+  border-radius: 999px;
+  color: rgba(248, 241, 232, 0.76);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  padding: 6px 8px;
+}
+
+.pdf-project-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pdf-project-card {
+  display: grid;
+  grid-template-rows: 126px 1fr;
+  min-height: 386px;
+  overflow: hidden;
+}
+
+.pdf-project-card__visual {
+  background:
+    linear-gradient(135deg, rgba(157, 255, 207, 0.2), transparent 48%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-bottom: 1px solid rgba(248, 241, 232, 0.14);
+  display: grid;
+  padding: 16px;
+  position: relative;
+}
+
+.pdf-project-card__visual::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  content: "";
+  inset: 0;
+  opacity: 0.44;
+  position: absolute;
+}
+
+.pdf-project-card__visual span {
+  color: #ffb36b;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 3.2rem;
+  line-height: 0.8;
+  position: relative;
+}
+
+.pdf-project-card__visual i {
+  align-self: end;
+  background: rgba(248, 241, 232, 0.24);
+  display: block;
+  height: 7px;
+  position: relative;
+  width: 62%;
+}
+
+.pdf-project-card__visual i:nth-child(3) {
+  width: 44%;
+}
+
+.pdf-project-card__visual i:nth-child(4) {
+  width: 30%;
+}
+
+.pdf-project-card__content {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+
+.pdf-project-card__top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pdf-project-card__top small {
+  color: rgba(248, 241, 232, 0.66);
+}
+
+.pdf-project-card h3 {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: capitalize;
+}
+
+.pdf-project-card p {
+  font-size: 0.72rem;
+  margin: 0;
+}
+
+.pdf-project-card footer {
+  align-items: center;
+  border-top: 1px solid rgba(248, 241, 232, 0.12);
+  color: rgba(248, 241, 232, 0.62);
+  display: flex;
+  font-size: 0.62rem;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.pdf-empty-projects {
+  align-self: start;
+  margin-top: 46px;
+  max-width: 460px;
+}
+
+.pdf-services-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pdf-service-card {
+  display: grid;
+  gap: 10px;
+  min-height: 176px;
+  padding: 18px;
+}
+
+.pdf-service-card svg {
+  color: #9dffcf;
+}
+
+.pdf-service-card h3 {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.pdf-service-card p {
+  font-size: 0.73rem;
+  margin: 0;
+}
+
+.pdf-final-strip {
+  align-self: end;
+  gap: 24px;
+  padding: 18px;
+}
+
+.pdf-final-strip div {
+  align-items: center;
+  color: #9dffcf;
+  display: flex;
+  gap: 10px;
+}
+
+.pdf-final-strip p {
+  margin: 0;
+  max-width: 340px;
 }
 
 @media (max-width: 1140px) {
@@ -2115,15 +2659,21 @@ body > * {
   }
 
   .contact-quick-actions {
-    display: flex;
-    position: static;
-    transform: none;
+    margin-top: 22px;
   }
 }
 
 @media (max-width: 700px) {
   .contact-section {
     padding: 92px 18px;
+  }
+
+  .pdf-floating-button {
+    bottom: 14px;
+    font-size: 0.78rem;
+    left: 14px;
+    min-height: 44px;
+    padding: 0 13px;
   }
 
   .form-row,
