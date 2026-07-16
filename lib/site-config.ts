@@ -22,9 +22,9 @@ export const siteConfig = {
 };
 
 export const navItems = [
-  { label: "Sobre", href: "/#sobre" },
-  { label: "Resumo", href: "/#resumo" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "Resumo", href: "#resumo" },
   { label: "Projetos", href: "/projetos" },
-  { label: "Serviços", href: "/#servicos" },
-  { label: "Contato", href: "/#contato" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Contato", href: "#contato" },
 ];

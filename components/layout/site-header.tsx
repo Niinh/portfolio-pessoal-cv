@@ -1,9 +1,10 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { type MouseEvent, useState } from "react";
 
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { navItems, siteConfig } from "@/lib/site-config";
@@ -17,10 +18,31 @@ export function SiteHeader() {
     setIsOpen(false);
   }
 
+  function handleLogoClick(event: MouseEvent<HTMLAnchorElement>) {
+    closeMenu();
+
+    if (pathname === "/") {
+      event.preventDefault();
+      window.history.replaceState(null, "", "/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  function getNavHref(href: string) {
+    if (href.startsWith("#") && pathname !== "/") return `/${href}`;
+    return href;
+  }
+
+  function isActive(href: string) {
+    return href === "/projetos" ? pathname.startsWith("/projetos") : false;
+  }
+
   return (
     <header className="site-header">
-      <Link className="brand-mark" href="/" onClick={closeMenu} aria-label="Ir para início">
-        <span>BN</span>
+      <Link className="brand-mark" href="/" onClick={handleLogoClick} aria-label="Ir para o topo">
+        <span className="brand-logo" aria-hidden>
+          <Image src="/images/logo-b.png" alt="" width={38} height={38} priority />
+        </span>
         <strong>{siteConfig.name}</strong>
       </Link>
 
@@ -28,8 +50,8 @@ export function SiteHeader() {
         {navItems.map((item) => (
           <Link
             key={item.href}
-            className={cn(pathname === item.href && "active")}
-            href={item.href}
+            className={cn(isActive(item.href) && "active")}
+            href={getNavHref(item.href)}
             onClick={closeMenu}
           >
             {item.label}

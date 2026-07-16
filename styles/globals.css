@@ -117,18 +117,20 @@ button {
   min-width: max-content;
 }
 
-.brand-mark span {
+.brand-logo {
   align-items: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   border-radius: 999px;
-  color: #06100d;
   display: inline-flex;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.78rem;
-  font-weight: 800;
   height: 38px;
   justify-content: center;
+  overflow: hidden;
   width: 38px;
+}
+
+.brand-logo img {
+  height: 100%;
+  width: 100%;
 }
 
 .brand-mark strong {
@@ -1091,9 +1093,8 @@ body > * {
   max-width: min(1180px, calc(100vw - 32px));
 }
 
-.brand-mark span {
+.brand-logo {
   background: var(--paper);
-  color: var(--ink);
 }
 
 .hero-section {
@@ -1796,27 +1797,65 @@ body > * {
 }
 
 .theme-toggle {
+  align-items: center;
+  background: color-mix(in srgb, var(--foreground) 7%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  height: 40px;
+  padding: 3px;
   position: relative;
+  transition: border-color 180ms ease, transform 180ms ease;
+  width: 76px;
 }
 
-.theme-toggle svg {
-  grid-area: 1 / 1;
-  transition: opacity 180ms ease, transform 180ms ease;
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
-.theme-toggle__moon {
-  opacity: 0;
-  transform: scale(0.72) rotate(-18deg);
+.theme-toggle__icon {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  position: relative;
+  transition: color 180ms ease;
+  width: 32px;
+  z-index: 1;
 }
 
-:root[data-theme="light"] .theme-toggle__sun {
-  opacity: 0;
-  transform: scale(0.72) rotate(18deg);
+.theme-toggle__thumb {
+  background: var(--paper);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  height: 32px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  transform: translateX(36px);
+  transition: transform 220ms ease;
+  width: 32px;
 }
 
-:root[data-theme="light"] .theme-toggle__moon {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+.theme-toggle__icon--moon {
+  color: var(--ink);
+}
+
+:root[data-theme="light"] .theme-toggle__thumb {
+  transform: translateX(0);
+}
+
+:root[data-theme="light"] .theme-toggle__icon--sun {
+  color: var(--ink);
+}
+
+:root[data-theme="light"] .theme-toggle__icon--moon {
+  color: var(--muted);
 }
 
 .contact-section {

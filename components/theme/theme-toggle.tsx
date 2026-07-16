@@ -22,12 +22,17 @@ export function ThemeToggle() {
   return (
     <button
       aria-label="Alternar tema claro ou escuro"
-      className="icon-button theme-toggle"
+      className="theme-toggle"
       type="button"
       onClick={toggleTheme}
     >
-      <Sun aria-hidden className="theme-toggle__sun" size={18} />
-      <Moon aria-hidden className="theme-toggle__moon" size={18} />
+      <span className="theme-toggle__icon theme-toggle__icon--sun" aria-hidden>
+        <Sun size={16} />
+      </span>
+      <span className="theme-toggle__icon theme-toggle__icon--moon" aria-hidden>
+        <Moon size={16} />
+      </span>
+      <span className="theme-toggle__thumb" aria-hidden />
     </button>
   );
 }
