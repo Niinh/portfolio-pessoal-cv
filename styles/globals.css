@@ -2261,9 +2261,13 @@ body:has(.pdf-source-page) .pdf-floating-button {
 }
 
 .pdf-cover-header strong {
+  color: #fffaf2;
   display: block;
-  font-size: 1rem;
-  margin-top: 4px;
+  font-size: 1.22rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-top: 7px;
+  text-shadow: 0 0 22px rgba(248, 241, 232, 0.28);
 }
 
 .pdf-cover-grid {
@@ -2275,12 +2279,14 @@ body:has(.pdf-source-page) .pdf-floating-button {
 
 .pdf-cover-copy h1,
 .pdf-page-heading h2 {
+  color: #fffaf2;
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-size: 4.9rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 0.88;
   margin: 12px 0 0;
+  text-shadow: 0 0 28px rgba(248, 241, 232, 0.18);
 }
 
 .pdf-cover-copy p:not(.pdf-kicker),
@@ -2432,6 +2438,7 @@ body:has(.pdf-source-page) .pdf-floating-button {
 .pdf-project-card h3,
 .pdf-service-card h3,
 .pdf-empty-projects h3 {
+  color: #fffaf2;
   margin: 0;
 }
 
@@ -2638,6 +2645,7 @@ body:has(.pdf-source-page) .pdf-floating-button {
 .pdf-final-strip {
   align-self: end;
   gap: 24px;
+  justify-content: flex-start;
   padding: 18px;
 }
 

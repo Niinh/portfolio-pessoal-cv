@@ -33,7 +33,7 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
         <header className="pdf-cover-header">
           <Image src="/images/logo-b.png" alt="" width={52} height={52} priority unoptimized />
           <div>
-            <span>Currículo + Portfólio</span>
+            <span>Currículo - Portfólio</span>
             <strong>{siteConfig.name}</strong>
           </div>
         </header>
@@ -161,7 +161,7 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
           <header className="pdf-page-heading pdf-page-heading--split">
             <div>
               <span>{String(pageIndex + 2).padStart(2, "0")} / Projetos</span>
-              <h2>Cases sincronizados com GitHub, apresentados como produto.</h2>
+              <h2>Cases sincronizados com GitHub, tratados como produto.</h2>
             </div>
             <p>Repositórios públicos com curadoria, stack, status e contexto técnico.</p>
           </header>
@@ -211,8 +211,8 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
       <section className="pdf-page pdf-page--services">
         <div className="pdf-page__chrome" aria-hidden />
         <header className="pdf-page-heading">
-          <span>{String(projectPages.length + 2).padStart(2, "0")} / Servicos</span>
-          <h2>Solução visual, técnica e comercial no mesmo fluxo.</h2>
+          <span>{String(projectPages.length + 2).padStart(2, "0")} / Serviços</span>
+          <h2>Soluções digitais com estética de produto e mentalidade de escala.</h2>
         </header>
 
         <div className="pdf-services-grid">
@@ -235,7 +235,6 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
             <Code2 aria-hidden size={18} />
             <strong>{siteConfig.siteUrl.replace("https://", "")}</strong>
           </div>
-          <p>Portfólio pensado como produto digital: performance, clareza e impacto visual.</p>
         </footer>
       </section>
     </div>
