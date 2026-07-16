@@ -1247,22 +1247,10 @@ body > * {
 }
 
 .portrait-frame img {
-  filter: saturate(0.9) contrast(1.06);
+  filter: saturate(1.02) contrast(1.03);
   object-fit: cover;
   object-position: bottom center;
-  padding: 7% 18% 0;
-}
-
-.portrait-frame span {
-  background: var(--ink);
-  bottom: 16px;
-  color: var(--paper);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.72rem;
-  left: 16px;
-  padding: 8px 10px;
-  position: absolute;
-  text-transform: uppercase;
+  padding: 5% 15% 0;
 }
 
 .portrait-meta {
@@ -1718,10 +1706,6 @@ body > * {
 
   .portrait-frame img {
     padding: 4% 4% 0;
-  }
-
-  .portrait-frame span {
-    display: none;
   }
 
   .portrait-meta {

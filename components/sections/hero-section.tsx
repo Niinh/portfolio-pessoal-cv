@@ -18,7 +18,7 @@ export function HeroSection() {
       <Reveal className="hero-content">
         <div className="hero-kicker">
           <span />
-          Web systems / SaaS / Visual design
+          Portfólio
         </div>
         <SplitHeadline
           lines={["Sistemas web", "com presença de", "marca forte."]}
@@ -50,7 +50,6 @@ export function HeroSection() {
               priority
               sizes="(max-width: 760px) 112px, 220px"
             />
-            <span>Disponível para projetos selecionados</span>
           </div>
           <div className="portrait-meta">
             <strong>{siteConfig.name}</strong>
