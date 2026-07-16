@@ -34,7 +34,10 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
           <Image src="/images/logo-b.png" alt="" width={52} height={52} priority unoptimized />
           <div>
             <span>Currículo - Portfólio</span>
-            <strong>{siteConfig.name}</strong>
+            <strong className="pdf-cover-name" aria-label={siteConfig.name}>
+              <span>Bruno</span>
+              <span>Neves</span>
+            </strong>
           </div>
         </header>
 
@@ -99,9 +102,11 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
 
       <section className="pdf-page pdf-page--resume">
         <div className="pdf-page__chrome" aria-hidden />
-        <header className="pdf-page-heading">
-          <span>01 / Currículo</span>
-          <h2>Experiência comercial, base técnica e evolução constante.</h2>
+        <header className="pdf-page-heading pdf-page-heading--split">
+          <div>
+            <span>01 / Currículo</span>
+            <h2>Experiência comercial, base técnica e evolução constante.</h2>
+          </div>
         </header>
 
         <div className="pdf-resume-layout">
@@ -110,10 +115,9 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
               <BriefcaseBusiness aria-hidden size={17} />
                 <h3>Experiências</h3>
             </div>
-            <ol className="pdf-timeline-list">
-              {experiences.map((item, index) => (
+            <ol className="pdf-timeline-list pdf-timeline-list--plain">
+              {experiences.map((item) => (
                 <li key={`${item.title}-${item.period}`}>
-                  <strong>{String(index + 1).padStart(2, "0")}</strong>
                   <span>{item.period}</span>
                   <h4>{item.title}</h4>
                   <p>{item.description}</p>
@@ -210,9 +214,11 @@ export function PdfExportDocument({ projects }: PdfExportDocumentProps) {
 
       <section className="pdf-page pdf-page--services">
         <div className="pdf-page__chrome" aria-hidden />
-        <header className="pdf-page-heading">
-          <span>{String(projectPages.length + 2).padStart(2, "0")} / Serviços</span>
-          <h2>Soluções digitais com estética de produto e mentalidade de escala.</h2>
+        <header className="pdf-page-heading pdf-page-heading--split">
+          <div>
+            <span>{String(projectPages.length + 2).padStart(2, "0")} / Serviços</span>
+            <h2>Soluções digitais com estética de produto e mentalidade de escala.</h2>
+          </div>
         </header>
 
         <div className="pdf-services-grid">

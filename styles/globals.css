@@ -2241,6 +2241,9 @@ body:has(.pdf-source-page) .pdf-floating-button {
 }
 
 .pdf-cover-header div {
+  display: grid;
+  gap: 7px;
+  justify-items: end;
   text-align: right;
 }
 
@@ -2262,12 +2265,21 @@ body:has(.pdf-source-page) .pdf-floating-button {
 
 .pdf-cover-header strong {
   color: #fffaf2;
-  display: block;
+  display: flex;
   font-size: 1.22rem;
   font-weight: 900;
+  gap: 0.28em;
   line-height: 1;
-  margin-top: 7px;
   text-shadow: 0 0 22px rgba(248, 241, 232, 0.28);
+  white-space: nowrap;
+}
+
+.pdf-cover-name span {
+  color: inherit;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: none;
 }
 
 .pdf-cover-grid {
@@ -2404,6 +2416,10 @@ body:has(.pdf-source-page) .pdf-floating-button {
   max-width: 210px;
 }
 
+.pdf-page-heading--split {
+  align-items: flex-start;
+}
+
 .pdf-resume-layout {
   display: grid;
   gap: 18px;
@@ -2470,6 +2486,19 @@ body:has(.pdf-source-page) .pdf-floating-button {
 
 .pdf-timeline-list p {
   font-size: 0.64rem;
+}
+
+.pdf-timeline-list--plain li {
+  grid-template-columns: minmax(94px, 120px) 1fr;
+}
+
+.pdf-timeline-list--plain span {
+  grid-column: 1;
+}
+
+.pdf-timeline-list--plain h4,
+.pdf-timeline-list--plain p {
+  grid-column: 2;
 }
 
 .pdf-side-stack {
