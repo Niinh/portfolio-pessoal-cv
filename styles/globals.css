@@ -143,15 +143,22 @@ button {
   gap: 4px;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav button {
+  appearance: none;
+  background: transparent;
+  border: 0;
   border-radius: 999px;
   color: var(--muted);
+  cursor: pointer;
+  font: inherit;
   font-size: 0.88rem;
   padding: 10px 13px;
   transition: background 180ms ease, color 180ms ease;
 }
 
 .site-nav a:hover,
+.site-nav button:hover,
 .site-nav a.active {
   background: color-mix(in srgb, var(--foreground) 9%, transparent);
   color: var(--foreground);
@@ -924,7 +931,9 @@ button {
     display: flex;
   }
 
-  .site-nav a {
+  .site-nav a,
+  .site-nav button {
+    text-align: left;
     width: 100%;
   }
 
