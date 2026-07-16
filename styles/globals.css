@@ -1462,6 +1462,19 @@ body > * {
   grid-column: 3;
 }
 
+.timeline-list--plain li {
+  grid-template-columns: minmax(116px, 150px) 1fr;
+}
+
+.timeline-list--plain span {
+  grid-column: 1;
+}
+
+.timeline-list--plain h4,
+.timeline-list--plain p {
+  grid-column: 2;
+}
+
 .timeline-list h4 {
   font-size: 1.05rem;
 }

@@ -38,10 +38,9 @@ export function ResumeSection() {
             <Trophy aria-hidden size={20} />
             <h3>Experiências</h3>
           </div>
-          <ol className="timeline-list">
-            {experiences.map((item, index) => (
+          <ol className="timeline-list timeline-list--plain">
+            {experiences.map((item) => (
               <li key={`${item.title}-${item.period}`}>
-                <strong>{String(index + 1).padStart(2, "0")}</strong>
                 <span>{item.period}</span>
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
